@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>جمعية البر بالعيدابي </title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap');
+        
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: #fef9e7; /* Light yellow */
+        }
+        
+        .hero-pattern {
+            background: linear-gradient(135deg, #2F0700 50%,#583F05 50%);
+        }
+        
+        .donate-btn {
+            background: linear-gradient(135deg, #dc2626 5%, #991b1b 100%);
+            box-shadow: 0 4px 15px rgba(220, 38, 38, 0.4);
+            transition: all 0.3s ease;
+        }
+        
+        .donate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.6);
+        }
+        
+        .cause-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .testimonial-card {
+            background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            right: 0;
+            background-color: #3b82f6;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .active-nav::after {
+            width: 100%;
+        }
+        
+        @media (min-width: 769px) {
+            .stats-item + .stats-item {
+                border-right: 2px solid #e5e7eb;
+            }
+            
+            .stats-item:last-child {
+                border-right: none;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .stats-item {
+                padding-bottom: 1.5rem;
+                margin-bottom: 1.5rem;
+                border-right: none !important;
+            }
+            
+            .stats-item:last-child {
+                padding-bottom: 0;
+                margin-bottom: 0;
+            }
+        }
+header, section {
+    background-color: #2F0700 !important;  /* الأحمر الغامق */
+    color: white !important;
+}
+
+body {
+    background-color: #7a1212;
+    color: #f8f8f8;
+}
+
+    </style>
+</head>
+<body class="text-gray-800">
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center text-white font-bold text-xl mr-4">
+                    البر
+                </div>
+                <h1 class="text-xl font-bold text-red-600">جمعية البر بالعيدابي</h1>
+            </div>
+            
+            <button id="mobile-menu-button" class="md:hidden text-gray-600 focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+            
+            <nav class="hidden md:flex">
+                <a href="#home" class="nav-link active-nav text-red-600 font-medium px-5 py-3">الرئيسية</a>
+                <a href="#about" class="nav-link text-gray-200 hover:text-red-600 font-medium px-5 py-3">عن الجمعية</a>
+                <a href="#causes" class="nav-link text-gray-200 hover:text-red-600 font-medium px-5 py-3">برامجنا</a>
+                <a href="#activities" class="nav-link text-gray-200 hover:text-red-600 font-medium px-5 py-3">أنشطتنا</a>
+                <a href="#contact" class="nav-link text-gray-200 hover:text-red-600 font-medium px-5 py-3">اتصل بنا</a>
+            </nav>
+            
+            <div class="hidden md:flex items-center">
+                <a href="#donate" class="donate-btn text-white px-8 py-3 rounded-full font-medium">تبرع الآن</a>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white py-4 px-4 shadow-lg">
+            <div class="flex flex-col space-y-4">
+                <a href="#home" class="text-yellow-300 font-medium">الرئيسية</a>
+                <a href="#about" class="text-gray-200 hover:text-yellow-300 font-medium">عن الجمعية</a>
+                <a href="#causes" class="text-gray-200 hover:text-yellow-300 font-medium">برامجنا</a>
+                <a href="#activities" class="text-gray-200 hover:text-yellow-300 font-medium">أنشطتنا</a>
+                <a href="#contact" class="text-gray-200 hover:text-yellow-300 font-medium">اتصل بنا</a>
+                <a href="#donate" class="donate-btn text-white px-6 py-2 rounded-full font-medium text-center">تبرع الآن</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-pattern bg-red-600 text-white py-20">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-10 md:mb-0">
+                <h1 class="text-4xl md:text-5xl font-bold mb-6">جمعية البر بالعيدابي</h1>
+                <p class="text-xl mb-8 leading-relaxed">
+                    نعمل من أجل تخفيف معاناة المحتاجين والأسر الفقيرة في منطقة العيدابي من خلال برامج إغاثية وتنموية مستدامة.
+                </p>
+                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                    <a href="#donate" class="donate-btn text-white px-8 py-3 rounded-full font-medium text-center">
+                        تبرع الآن <i class="fas fa-heart ml-2"></i>
+                    </a>
+                    <a href="#about" class="bg-white text-blue-600 px-8 py-3 rounded-full font-medium text-center hover:bg-gray-100 transition">
+                        تعرف علينا <i class="fas fa-info-circle ml-2"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <img src="https://images.unsplash.com/photo-1521791055366-0d553872125f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="جمعية البر بالعيدابي" class="rounded-lg shadow-xl w-full max-w-md">
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="bg-yellow-50 py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 divide-h divide-white md:divide-x-1">
+                <div class="stats-item flex flex-col items-center text-center px-4 md:px-0">
+                    <div class="text-4xl font-bold text-red-600 mb-2">1,250+</div>
+                    <div class="text-white-600">أسرة مستفيدة</div>
+                </div>
+                <div class="stats-item flex flex-col items-center text-center px-4 md:px-0 md:border-l md:border-white">
+                    <div class="text-4xl font-bold text-red-600 mb-2">45+</div>
+                    <div class="text-white-600">مشروع خيري</div>
+                </div>
+                <div class="stats-item flex flex-col items-center text-center px-4 md:px-0 md:border-l md:border-white">
+                    <div class="text-4xl font-bold text-red-600 mb-2">120+</div>
+                    <div class="text-white-600">متطوع</div>
+                </div>
+                <div class="stats-item flex flex-col items-center text-center pr-0 md:pr-8">
+                    <div class="text-4xl font-bold text-red-600 mb-2">15+</div>
+                    <div class="text-white-600">عام من العطاء</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-yellow-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-white-800 mb-4">من نحن</h2>
+                <div class="w-20 h-1 bg-yellow-500 mx-auto"></div>
+            </div>
+            
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
+                    <img src="https://edabi-ber.sa/wp-content/uploads/2019/06/cropped-%D8%B4%D8%B9%D8%A7%D8%B1.png" alt="عن الجمعية" class="rounded-lg shadow-lg w-full">
+                </div>
+                <div class="md:w-1/2">
+                    <h3 class="text-2xl font-bold text-white-800 mb-6">نبذة عن الجمعية :</h3>
+                    <p class="text-white-600 mb-6 leading-relaxed">
+                        تأسست جمعية البر بالعيدابي عام 2008م كجمعية خيرية مسجلة رسمياً تهدف إلى نبذة عن الجمعية :
+
+تأسست جمعية البر الخيرية بمحافظة العيدابي عام 1421هـ
+وهي جمعية غير ربحية تم تسجيلها برقم (228) بوزارة العمل والتنمية الإجتماعية بتاريخ 1421/08/12هـ الموافق 08 / 11 / 2000 م.
+                    </p>
+                    <p class="text-white-600 mb-6 leading-relaxed">
+                        <h1 class="text-2xl font-bold text-white-800 mb-6">الرسالة</h1>
+
+صناعة التنمية في مجال العمل الاجتماعي والخيري بمحافظة العيدابي عن طريق ابتكار المشاريع والبرامج الفاعلة
+من خلال إدارة الشراكات مع الجهات الحكومية والخاصة للوصول الى حلول ريادية تساعد على النهوض بالمجتمع المحلي في العيدابي
+                    <div class="flex flex-wrap gap-4">
+                        <div class="flex items-center bg-black px-4 py-2 rounded-full shadow-sm">
+                            <i class="fas fa-check-circle text-green-500 mr-2"></i>&nbsp;
+                            <span>شفافية كاملة</span>
+                        </div>
+                        <div class="flex items-center bg-black px-4 py-2 rounded-full shadow-sm">
+                            <i class="fas fa-check-circle text-green-500 mr-2"></i>&nbsp;
+                            <span>مسجلة رسمياً</span>
+                        </div>
+                        <div class="flex items-center bg-black px-4 py-4 rounded-full shadow-sm">  
+                            <i class="fas fa-check-circle text-green-500 mr-2"></i>&nbsp;
+                            <span>فريق متخصص</span> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- Causes Section -->
+<section id="causes" class="py-20 bg-yellow-50">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl font-bold text-white-800 mb-4">برامجنا الخيرية</h2>
+            <p class="text-white-600 max-w-2xl mx-auto">نقدم مجموعة من البرامج الخيرية التي تغطي مختلف احتياجات المجتمع</p>
+            <div class="w-20 h-1 bg-blue-500 mx-auto mt-4"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            <!-- Cause 1 -->
+            <div class="cause-card bg-[#7a1212] text-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                <img src="https://www.kh-jubbah.org.sa/wp-content/uploads/2024/07/R907hO7eKCgZobn9E2ZM3qQhQqinFQdCsqZnrkkn.webp" alt="كفالة الأيتام" class="w-full h-48 object-cover object-[center_70%]">
+                <div class="p-6">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="bg-yellow-100 text-yellow-600 px-3 py-1 rounded-full text-sm font-medium">كفالة</span>
+                        <span class="text-gray-300">برنامج مستمر</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">كفالة الأيتام</h3>
+                    <p class="text-white mb-4">
+                        برنامج متكامل لرعاية الأيتام وتوفير احتياجاتهم الأساسية من مأكل وملبس وتعليم ورعاية صحية ونفسية.
+                    </p>
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <span class="text-yellow-300 font-bold">75</span>
+                            <span class="text-gray-300"> / يتيم</span>
+                        </div>
+                        <a href="#" class="text-yellow-300 hover:text-yellow-400 font-medium">المزيد <i class="fas fa-arrow-left ml-1"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cause 2 -->
+            <div class="cause-card bg-[#7a1212] text-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                <img src="https://images.unsplash.com/photo-1507048331197-7d4ac70811cf?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="سلال غذائية" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="bg-green-100 text-green-600 px-3 py-1 rounded-full text-sm font-medium">إغاثة</span>
+                        <span class="text-gray-300">موسمي</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">سلال غذائية</h3>
+                    <p class="text-white mb-4">
+                        توزيع سلال غذائية شهرية تحتوي على المواد الأساسية للأسر الفقيرة والمحتاجة في منطقة العيدابي.
+                    </p>
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <span class="text-yellow-300 font-bold">350</span>
+                            <span class="text-gray-300"> / أسرة</span>
+                        </div>
+                        <a href="#" class="text-yellow-300 hover:text-yellow-400 font-medium">المزيد <i class="fas fa-arrow-left ml-1"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cause 3 -->
+            <div class="cause-card bg-[#7a1212] text-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="تعليمي" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="bg-purple-100 text-purple-600 px-3 py-1 rounded-full text-sm font-medium">تعليمي</span>
+                        <span class="text-gray-300">مستمر</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">دعم التعليم</h3>
+                    <p class="text-white mb-4">
+                        توفير المستلزمات الدراسية والزي المدرسي والمنح التعليمية لأبناء الأسر المحتاجة لضمان استمرارهم في التعليم.
+                    </p>
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <span class="text-yellow-300 font-bold">200</span>
+                            <span class="text-gray-300"> / طالب</span>
+                        </div>
+                        <a href="#" class="text-yellow-300 hover:text-yellow-400 font-medium">المزيد <i class="fas fa-arrow-left ml-1"></i></a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+            
+            <div class="text-center mt-12">
+                <a href="#" class="inline-block border-2 border-red-600 text-red-600 px-6 py-2 rounded-full font-medium hover:bg-red-600 hover:text-white transition">
+                    عرض جميع البرامج <i class="fas fa-arrow-left ml-2"></i>
+                </a>
+            </div>
+        </div>
+    
+</br>
+    <!-- Activities Section -->
+    
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-white-800 mb-4">اتصل بنا </h2>
+                <p class="text-white-600 max-w-2xl mx-auto">تعرف على آخر المشاريع والأنشطة التي قامت بها الجمعية</p>
+                <div class="w-20 h-1 bg-blue-500 mx-auto mt-4"></div>
+                <div class="flex justify-center gap-6 mt-8">
+                    <a href="https://twitter.com" target="_blank" class="text-white-600 hover:text-blue-400">
+                        <i class="fab fa-twitter text-2xl"></i>
+                    </a>
+                    <a href="https://facebook.com" target="_blank" class="text-white-600 hover:text-blue-600">
+                        <i class="fab fa-facebook text-2xl"></i>
+                    </a>
+                    <a href="https://instagram.com" target="_blank" class="text-white-600 hover:text-pink-600">
+                        <i class="fab fa-instagram text-2xl"></i>
+                    </a>
+                    <a href="https://youtube.com" target="_blank" class="text-white-600 hover:text-red-600">
+                        <i class="fab fa-youtube text-2xl"></i>
+                    </a>
+                    
+                </div>
+                <!-- Footer Section -->
+    <section class="bg-[#2F0700] py-8 text-center">
+        <div class="container mx-auto">
+            <p class="text-white text-lg font-medium">صنع بواسطة فارس غزواني & علي معبوج<br>
+            تحت اشراف مشرف التدريب </p>
+        </div>
+    </section>
+            </div>
+            </section>
+            
+</body>
+</html>
