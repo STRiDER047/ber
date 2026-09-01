@@ -1,0 +1,29 @@
+body {
+    font-family: 'Tajawal', sans-serif;
+}
+
+/* خط سفلي ناعم للروابط */
+.nav-link {
+    position: relative;
+    transition: color 0.2s ease;
+}
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2.5px;
+    bottom: -4px;
+    right: 50%;
+    background-color: #be123c;
+    border-radius: 2px;
+    transition: all 0.25s ease;
+    transform: translateX(50%);
+}
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 80%;
+}
+
+.dark .nav-link::after {
+    background-color: #f59e0b;
+}

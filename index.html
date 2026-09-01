@@ -1,561 +1,791 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ar" dir="rtl" class="scroll-smooth">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>جمعية البر الخيرية بمحافظة العيدابي</title>
+
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            50: '#fdf4f4',
-                            100: '#fbe8e8',
-                            200: '#f7d5d5',
-                            700: '#9b1c28',
-                            800: '#7e1720',
-                            900: '#4a0e17',
-                            950: '#2a050d',
-                        },
-                        amber: {
-                            400: '#fbbf24',
-                            500: '#f59e0b',
-                            600: '#d97706',
-                            700: '#b45309',
-                        }
-                    }
-                }
-            }
-        }
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                50: "#fdf4f4",
+                100: "#fbe8e8",
+                200: "#f7d5d5",
+                700: "#9b1c28",
+                800: "#7e1720",
+                900: "#4a0e17",
+                950: "#2a050d",
+              },
+              amber: {
+                400: "#fbbf24",
+                500: "#f59e0b",
+                600: "#d97706",
+                700: "#b45309",
+              },
+            },
+          },
+        },
+      };
     </script>
+
     <!-- Script to prevent Dark Mode flash on load -->
     <script>
-        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            document.documentElement.classList.add('dark');
-        } else {
-            document.documentElement.classList.remove('dark');
-        }
+      if (
+        localStorage.getItem("theme") === "dark" ||
+        (!("theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
     </script>
+
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+
     <!-- Tajawal Font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
-    
-    <style>
-        body {
-            font-family: 'Tajawal', sans-serif;
-        }
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap"
+      rel="stylesheet"
+    />
 
-        /* خط سفلي ناعم للروابط */
-        .nav-link {
-            position: relative;
-            transition: color 0.2s ease;
-        }
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2.5px;
-            bottom: -4px;
-            right: 50%;
-            background-color: #be123c;
-            border-radius: 2px;
-            transition: all 0.25s ease;
-            transform: translateX(50%);
-        }
-        .nav-link:hover::after,
-        .nav-link.active::after {
-            width: 80%;
-        }
-
-        .dark .nav-link::after {
-            background-color: #f59e0b;
-        }
-    </style>
-</head>
-<body class="bg-[#f8f6f0] text-stone-800 dark:bg-[#0b0f19] dark:text-slate-200 antialiased transition-colors duration-300 selection:bg-brand-100 selection:text-brand-900 dark:selection:bg-amber-900 dark:selection:text-amber-200">
-
+    <!-- External CSS -->
+    <link rel="stylesheet" href="assets/style.css" />
+  </head>
+  <body
+    class="bg-[#f8f6f0] text-stone-800 dark:bg-[#0b0f19] dark:text-slate-200 antialiased transition-colors duration-300 selection:bg-brand-100 selection:text-brand-900 dark:selection:bg-amber-900 dark:selection:text-amber-200"
+  >
     <!-- Header / Navbar -->
-    <header class="bg-[#fcfbf7]/90 dark:bg-[#0f1422]/90 backdrop-blur-md border-b border-stone-200 dark:border-slate-800/80 sticky top-0 z-50 transition-colors duration-300 shadow-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
-                
-                <!-- Logo & Brand Name -->
-                <a href="#home" class="flex items-center gap-3.5 group focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-800 dark:focus-visible:ring-amber-500 rounded-xl p-1">
-                    <div class="w-11 h-11 bg-gradient-to-br from-brand-800 to-brand-950 dark:from-amber-600 dark:to-brand-900 text-amber-400 dark:text-white rounded-xl flex items-center justify-center font-black text-xl shadow-md group-hover:scale-105 transition-transform duration-200">
-                        البر
-                    </div>
-                    <div>
-                        <span class="text-lg sm:text-xl font-extrabold text-stone-900 dark:text-white block leading-tight group-hover:text-brand-800 dark:group-hover:text-amber-400 transition-colors">جمعية البر الخيرية</span>
-                        <span class="text-xs font-semibold text-stone-500 dark:text-slate-400 block">بمحافظة العيدابي • تصريح (228)</span>
-                    </div>
-                </a>
-                
-                <!-- Desktop Navigation -->
-                <nav class="hidden md:flex items-center gap-8">
-                    <a href="#home" class="nav-link active text-brand-900 dark:text-amber-400 font-bold text-base py-1">الرئيسية</a>
-                    <a href="#about" class="nav-link text-stone-600 dark:text-slate-300 hover:text-brand-900 dark:hover:text-white font-medium text-base py-1">عن الجمعية</a>
-                    <a href="#causes" class="nav-link text-stone-600 dark:text-slate-300 hover:text-brand-900 dark:hover:text-white font-medium text-base py-1">برامجنا</a>
-                    <a href="#contact" class="nav-link text-stone-600 dark:text-slate-300 hover:text-brand-900 dark:hover:text-white font-medium text-base py-1">اتصل بنا</a>
-                </nav>
-                
-                <!-- Action Controls (Dark Mode Toggle + Donate Button + Mobile Trigger) -->
-                <div class="flex items-center gap-3">
-                    
-                    <!-- Dark/Light Mode Switcher Button -->
-                    <button id="theme-toggle" 
-                            class="w-11 h-11 flex items-center justify-center rounded-xl bg-stone-200/70 hover:bg-stone-300/80 dark:bg-slate-800 dark:hover:bg-slate-700 text-stone-700 dark:text-amber-400 border border-stone-300/50 dark:border-slate-700 transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500" 
-                            aria-label="تبديل الوضع الليلي">
-                        <i id="theme-moon" class="fas fa-moon text-lg"></i>
-                        <i id="theme-sun" class="fas fa-sun text-lg hidden"></i>
-                    </button>
-
-                    <!-- Donate CTA Button -->
-                    <a href="#causes" class="hidden sm:inline-flex items-center gap-2 bg-gradient-to-r from-brand-800 to-brand-900 dark:from-amber-600 dark:to-amber-700 hover:from-brand-900 hover:to-slate-950 dark:hover:from-amber-500 dark:hover:to-amber-600 text-white dark:text-slate-950 font-bold px-6 py-2.5 rounded-xl shadow-md transition-all duration-200 active:scale-[0.98] focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-800">
-                        <i class="fas fa-heart text-amber-400 dark:text-slate-950 text-sm"></i>
-                        <span>تبرع الآن</span>
-                    </a>
-                    
-                    <!-- Centered Mobile Menu Button -->
-                    <button id="mobile-menu-button" 
-                            class="md:hidden relative w-11 h-11 flex items-center justify-center rounded-xl bg-stone-200/70 dark:bg-slate-800 hover:bg-stone-300 dark:hover:bg-slate-700 text-stone-800 dark:text-slate-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-800 dark:focus-visible:ring-amber-500 transition-colors border border-stone-300/50 dark:border-slate-700"
-                            aria-label="القائمة الرئيسية" 
-                            aria-expanded="false" 
-                            aria-controls="mobile-menu">
-                        <i id="menu-icon-bars" class="fas fa-bars text-xl"></i>
-                        <i id="menu-icon-close" class="fas fa-xmark text-2xl hidden text-brand-800 dark:text-amber-400"></i>
-                    </button>
-                </div>
+    <header
+      class="bg-[#fcfbf7]/90 dark:bg-[#0f1422]/90 backdrop-blur-md border-b border-stone-200 dark:border-slate-800/80 sticky top-0 z-50 transition-colors duration-300 shadow-sm"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-20">
+          <!-- Logo & Brand Name -->
+          <a
+            href="#home"
+            class="flex items-center gap-3.5 group focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-800 dark:focus-visible:ring-amber-500 rounded-xl p-1"
+          >
+            <div
+              class="w-11 h-11 bg-gradient-to-br from-brand-800 to-brand-950 dark:from-amber-600 dark:to-brand-900 text-amber-400 dark:text-white rounded-xl flex items-center justify-center font-black text-xl shadow-md group-hover:scale-105 transition-transform duration-200"
+            >
+              البر
             </div>
+            <div>
+              <span
+                class="text-lg sm:text-xl font-extrabold text-stone-900 dark:text-white block leading-tight group-hover:text-brand-800 dark:group-hover:text-amber-400 transition-colors"
+                >جمعية البر الخيرية</span
+              >
+              <span
+                class="text-xs font-semibold text-stone-500 dark:text-slate-400 block"
+                >بمحافظة العيدابي • تصريح (228)</span
+              >
+            </div>
+          </a>
+
+          <!-- Desktop Navigation -->
+          <nav class="hidden md:flex items-center gap-8">
+            <a
+              href="#home"
+              class="nav-link active text-brand-900 dark:text-amber-400 font-bold text-base py-1"
+              >الرئيسية</a
+            >
+            <a
+              href="#about"
+              class="nav-link text-stone-600 dark:text-slate-300 hover:text-brand-900 dark:hover:text-white font-medium text-base py-1"
+              >عن الجمعية</a
+            >
+            <a
+              href="#causes"
+              class="nav-link text-stone-600 dark:text-slate-300 hover:text-brand-900 dark:hover:text-white font-medium text-base py-1"
+              >برامجنا</a
+            >
+            <a
+              href="#contact"
+              class="nav-link text-stone-600 dark:text-slate-300 hover:text-brand-900 dark:hover:text-white font-medium text-base py-1"
+              >اتصل بنا</a
+            >
+          </nav>
+
+          <!-- Action Controls (Dark Mode Toggle + Donate Button + Mobile Trigger) -->
+          <div class="flex items-center gap-3">
+            <!-- Dark/Light Mode Switcher Button -->
+            <button
+              id="theme-toggle"
+              class="w-11 h-11 flex items-center justify-center rounded-xl bg-stone-200/70 hover:bg-stone-300/80 dark:bg-slate-800 dark:hover:bg-slate-700 text-stone-700 dark:text-amber-400 border border-stone-300/50 dark:border-slate-700 transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500"
+              aria-label="تبديل الوضع الليلي"
+            >
+              <i id="theme-moon" class="fas fa-moon text-lg"></i>
+              <i id="theme-sun" class="fas fa-sun text-lg hidden"></i>
+            </button>
+
+            <!-- Donate CTA Button -->
+            <a
+              href="#causes"
+              class="hidden sm:inline-flex items-center gap-2 bg-gradient-to-r from-brand-800 to-brand-900 dark:from-amber-600 dark:to-amber-700 hover:from-brand-900 hover:to-slate-950 dark:hover:from-amber-500 dark:hover:to-amber-600 text-white dark:text-slate-950 font-bold px-6 py-2.5 rounded-xl shadow-md transition-all duration-200 active:scale-[0.98] focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-800"
+            >
+              <i
+                class="fas fa-heart text-amber-400 dark:text-slate-950 text-sm"
+              ></i>
+              <span>تبرع الآن</span>
+            </a>
+
+            <!-- Centered Mobile Menu Button -->
+            <button
+              id="mobile-menu-button"
+              class="md:hidden relative w-11 h-11 flex items-center justify-center rounded-xl bg-stone-200/70 dark:bg-slate-800 hover:bg-stone-300 dark:hover:bg-slate-700 text-stone-800 dark:text-slate-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-800 dark:focus-visible:ring-amber-500 transition-colors border border-stone-300/50 dark:border-slate-700"
+              aria-label="القائمة الرئيسية"
+              aria-expanded="false"
+              aria-controls="mobile-menu"
+            >
+              <i id="menu-icon-bars" class="fas fa-bars text-xl"></i>
+              <i
+                id="menu-icon-close"
+                class="fas fa-xmark text-2xl hidden text-brand-800 dark:text-amber-400"
+              ></i>
+            </button>
+          </div>
         </div>
-        
-        <!-- Mobile Dropdown Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-[#fcfbf7] dark:bg-[#0f1422] border-b border-stone-200 dark:border-slate-800 px-5 pt-3 pb-6 shadow-xl transition-colors duration-300">
-            <nav class="flex flex-col space-y-2">
-                <a href="#home" class="mobile-nav-item flex items-center justify-between px-4 py-3 rounded-xl text-brand-900 dark:text-amber-400 font-bold bg-brand-50 dark:bg-slate-800/80 border border-brand-100 dark:border-slate-700">
-                    <span>الرئيسية</span>
-                    <i class="fas fa-chevron-left text-xs text-brand-700 dark:text-amber-400"></i>
-                </a>
-                <a href="#about" class="mobile-nav-item flex items-center justify-between px-4 py-3 rounded-xl text-stone-700 dark:text-slate-300 font-medium hover:bg-stone-200/50 dark:hover:bg-slate-800 transition-colors">
-                    <span>عن الجمعية</span>
-                    <i class="fas fa-chevron-left text-xs text-stone-400"></i>
-                </a>
-                <a href="#causes" class="mobile-nav-item flex items-center justify-between px-4 py-3 rounded-xl text-stone-700 dark:text-slate-300 font-medium hover:bg-stone-200/50 dark:hover:bg-slate-800 transition-colors">
-                    <span>برامجنا</span>
-                    <i class="fas fa-chevron-left text-xs text-stone-400"></i>
-                </a>
-                <a href="#contact" class="mobile-nav-item flex items-center justify-between px-4 py-3 rounded-xl text-stone-700 dark:text-slate-300 font-medium hover:bg-stone-200/50 dark:hover:bg-slate-800 transition-colors">
-                    <span>اتصل بنا</span>
-                    <i class="fas fa-chevron-left text-xs text-stone-400"></i>
-                </a>
-                <div class="pt-3">
-                    <a href="#causes" class="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-brand-800 to-brand-900 dark:from-amber-600 dark:to-amber-700 text-white dark:text-slate-950 font-bold py-3 px-4 rounded-xl shadow-md text-center">
-                        <i class="fas fa-heart text-amber-400 dark:text-slate-950 text-sm"></i>
-                        <span>تبرع الآن للبرامج الخيرية</span>
-                    </a>
-                </div>
-            </nav>
-        </div>
+      </div>
+
+      <!-- Mobile Dropdown Menu -->
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden bg-[#fcfbf7] dark:bg-[#0f1422] border-b border-stone-200 dark:border-slate-800 px-5 pt-3 pb-6 shadow-xl transition-colors duration-300"
+      >
+        <nav class="flex flex-col space-y-2">
+          <a
+            href="#home"
+            class="mobile-nav-item flex items-center justify-between px-4 py-3 rounded-xl text-brand-900 dark:text-amber-400 font-bold bg-brand-50 dark:bg-slate-800/80 border border-brand-100 dark:border-slate-700"
+          >
+            <span>الرئيسية</span>
+            <i
+              class="fas fa-chevron-left text-xs text-brand-700 dark:text-amber-400"
+            ></i>
+          </a>
+          <a
+            href="#about"
+            class="mobile-nav-item flex items-center justify-between px-4 py-3 rounded-xl text-stone-700 dark:text-slate-300 font-medium hover:bg-stone-200/50 dark:hover:bg-slate-800 transition-colors"
+          >
+            <span>عن الجمعية</span>
+            <i class="fas fa-chevron-left text-xs text-stone-400"></i>
+          </a>
+          <a
+            href="#causes"
+            class="mobile-nav-item flex items-center justify-between px-4 py-3 rounded-xl text-stone-700 dark:text-slate-300 font-medium hover:bg-stone-200/50 dark:hover:bg-slate-800 transition-colors"
+          >
+            <span>برامجنا</span>
+            <i class="fas fa-chevron-left text-xs text-stone-400"></i>
+          </a>
+          <a
+            href="#contact"
+            class="mobile-nav-item flex items-center justify-between px-4 py-3 rounded-xl text-stone-700 dark:text-slate-300 font-medium hover:bg-stone-200/50 dark:hover:bg-slate-800 transition-colors"
+          >
+            <span>اتصل بنا</span>
+            <i class="fas fa-chevron-left text-xs text-stone-400"></i>
+          </a>
+          <div class="pt-3">
+            <a
+              href="#causes"
+              class="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-brand-800 to-brand-900 dark:from-amber-600 dark:to-amber-700 text-white dark:text-slate-950 font-bold py-3 px-4 rounded-xl shadow-md text-center"
+            >
+              <i
+                class="fas fa-heart text-amber-400 dark:text-slate-950 text-sm"
+              ></i>
+              <span>تبرع الآن للبرامج الخيرية</span>
+            </a>
+          </div>
+        </nav>
+      </div>
     </header>
 
     <!-- Hero Section -->
-    <section id="home" class="relative overflow-hidden bg-gradient-to-b from-brand-950 via-[#3b0811] to-[#220409] dark:from-[#080b13] dark:via-[#131a2b] dark:to-[#080b13] text-white py-16 sm:py-24 transition-colors duration-300">
-        <!-- Subtle Pattern Background -->
-        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#d97706_1px,transparent_1px)] [background-size:24px_24px]"></div>
-        
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                
-                <div class="lg:col-span-7 text-center lg:text-right space-y-6">
-                    <!-- Trust Badge -->
-                    <div class="inline-flex items-center gap-2 bg-white/10 dark:bg-slate-800/60 backdrop-blur-md border border-white/15 dark:border-slate-700 px-4 py-1.5 rounded-full text-amber-300 text-sm font-semibold shadow-sm">
-                        <i class="fas fa-award text-xs"></i>
-                        <span>جمعية معتمدة ومرخصة رسمياً برقم 228</span>
-                    </div>
+    <section
+      id="home"
+      class="relative overflow-hidden bg-gradient-to-b from-brand-950 via-[#3b0811] to-[#220409] dark:from-[#080b13] dark:via-[#131a2b] dark:to-[#080b13] text-white py-16 sm:py-24 transition-colors duration-300"
+    >
+      <div
+        class="absolute inset-0 opacity-10 bg-[radial-gradient(#d97706_1px,transparent_1px)] [background-size:24px_24px]"
+      ></div>
 
-                    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-tight text-white">
-                        نغرس الأمل ونساند الأسر <br class="hidden sm:inline">
-                        <span class="text-amber-300">بمحافظة العيدابي</span>
-                    </h1>
-
-                    <p class="text-base sm:text-lg text-stone-200 dark:text-slate-300 leading-relaxed max-w-2xl mx-auto lg:mx-0 font-normal">
-                        نعمل من أجل تخفيف معاناة المحتاجين والأسر المتعففة في منطقة العيدابي من خلال مشاريع إغاثية، تنموية، وتعليمية مستدامة تضمن كرامة الإنسان.
-                    </p>
-
-                    <!-- CTA Buttons -->
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-2">
-                        <a href="#causes" class="inline-flex items-center justify-center gap-3 bg-amber-500 hover:bg-amber-600 dark:bg-amber-500 dark:hover:bg-amber-400 text-stone-950 font-bold px-8 py-3.5 rounded-xl shadow-lg shadow-amber-500/20 hover:scale-[1.02] active:scale-[0.98] transition-all">
-                            <span>ساهم معنا الآن</span>
-                            <i class="fas fa-hand-holding-heart"></i>
-                        </a>
-                        <a href="#about" class="inline-flex items-center justify-center gap-2 bg-white/10 dark:bg-slate-800/80 hover:bg-white/20 dark:hover:bg-slate-700 text-white border border-white/20 dark:border-slate-700 font-semibold px-7 py-3.5 rounded-xl backdrop-blur-sm transition-all">
-                            <span>تعرف على الجمعية</span>
-                            <i class="fas fa-arrow-left text-xs"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Hero Image with Soft Glow -->
-                <div class="lg:col-span-5 flex justify-center">
-                    <div class="relative w-full max-w-md">
-                        <div class="relative bg-brand-950 dark:bg-slate-900 rounded-2xl overflow-hidden shadow-2xl border border-white/15 dark:border-slate-700">
-                            <img src="https://images.unsplash.com/photo-1579227113447-f1e32cc6bd42?q=80&w=1764&auto=format&fit=crop" 
-                                 alt="جمعية البر بالعيدابي - مساعدة المحتاجين" 
-                                 class="w-full h-72 sm:h-80 object-cover hover:scale-105 transition-transform duration-500">
-                            <div class="p-4 bg-brand-950/90 dark:bg-slate-900/95 backdrop-blur-sm border-t border-white/10 dark:border-slate-800 flex items-center justify-between text-xs text-stone-300 dark:text-slate-400">
-                                <span><i class="fas fa-shield-alt text-emerald-400 ml-1.5"></i> تبرع آمن ومباشر</span>
-                                <span><i class="fas fa-map-marker-alt text-amber-400 ml-1.5"></i> جازان - العيدابي</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <div class="lg:col-span-7 text-center lg:text-right space-y-6">
+            <div
+              class="inline-flex items-center gap-2 bg-white/10 dark:bg-slate-800/60 backdrop-blur-md border border-white/15 dark:border-slate-700 px-4 py-1.5 rounded-full text-amber-300 text-sm font-semibold shadow-sm"
+            >
+              <i class="fas fa-award text-xs"></i>
+              <span>جمعية معتمدة ومرخصة رسمياً برقم 228</span>
             </div>
+
+            <h1
+              class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-tight text-white"
+            >
+              نغرس الأمل ونساند الأسر <br class="hidden sm:inline" />
+              <span class="text-amber-300">بمحافظة العيدابي</span>
+            </h1>
+
+            <p
+              class="text-base sm:text-lg text-stone-200 dark:text-slate-300 leading-relaxed max-w-2xl mx-auto lg:mx-0 font-normal"
+            >
+              نعمل من أجل تخفيف معاناة المحتاجين والأسر المتعففة في منطقة
+              العيدابي من خلال مشاريع إغاثية، تنموية، وتعليمية مستدامة تضمن
+              كرامة الإنسان.
+            </p>
+
+            <div
+              class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-2"
+            >
+              <a
+                href="#causes"
+                class="inline-flex items-center justify-center gap-3 bg-amber-500 hover:bg-amber-600 dark:bg-amber-500 dark:hover:bg-amber-400 text-stone-950 font-bold px-8 py-3.5 rounded-xl shadow-lg shadow-amber-500/20 hover:scale-[1.02] active:scale-[0.98] transition-all"
+              >
+                <span>ساهم معنا الآن</span>
+                <i class="fas fa-hand-holding-heart"></i>
+              </a>
+              <a
+                href="#about"
+                class="inline-flex items-center justify-center gap-2 bg-white/10 dark:bg-slate-800/80 hover:bg-white/20 dark:hover:bg-slate-700 text-white border border-white/20 dark:border-slate-700 font-semibold px-7 py-3.5 rounded-xl backdrop-blur-sm transition-all"
+              >
+                <span>تعرف على الجمعية</span>
+                <i class="fas fa-arrow-left text-xs"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Hero Image -->
+          <div class="lg:col-span-5 flex justify-center">
+            <div class="relative w-full max-w-md">
+              <div
+                class="relative bg-brand-950 dark:bg-slate-900 rounded-2xl overflow-hidden shadow-2xl border border-white/15 dark:border-slate-700"
+              >
+                <img
+                  src="assets/images/hero-bg.jpg"
+                  alt="جمعية البر بالعيدابي - مساعدة المحتاجين"
+                  class="w-full h-72 sm:h-80 object-cover hover:scale-105 transition-transform duration-500"
+                />
+                <div
+                  class="p-4 bg-brand-950/90 dark:bg-slate-900/95 backdrop-blur-sm border-t border-white/10 dark:border-slate-800 flex items-center justify-between text-xs text-stone-300 dark:text-slate-400"
+                >
+                  <span
+                    ><i class="fas fa-shield-alt text-emerald-400 ml-1.5"></i>
+                    تبرع آمن ومباشر</span
+                  >
+                  <span
+                    ><i class="fas fa-map-marker-alt text-amber-400 ml-1.5"></i>
+                    جازان - العيدابي</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Floating Stats Section -->
     <section class="relative -mt-8 z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="bg-white dark:bg-[#111625] rounded-2xl p-6 sm:p-8 shadow-lg shadow-stone-300/40 dark:shadow-black/60 border border-stone-200 dark:border-slate-800 grid grid-cols-2 md:grid-cols-4 gap-6 text-center transition-colors duration-300">
-            
-            <div class="space-y-1">
-                <div class="text-3xl sm:text-4xl font-extrabold text-brand-900 dark:text-amber-400">1,250+</div>
-                <div class="text-xs sm:text-sm font-semibold text-stone-600 dark:text-slate-400">أسرة مستفيدة</div>
-            </div>
-            
-            <div class="space-y-1 border-r border-stone-200 dark:border-slate-800 pr-4">
-                <div class="text-3xl sm:text-4xl font-extrabold text-brand-900 dark:text-amber-400">45+</div>
-                <div class="text-xs sm:text-sm font-semibold text-stone-600 dark:text-slate-400">مشروع خيري وتنموي</div>
-            </div>
-            
-            <div class="space-y-1 border-r border-stone-200 dark:border-slate-800 pr-4">
-                <div class="text-3xl sm:text-4xl font-extrabold text-brand-900 dark:text-amber-400">120+</div>
-                <div class="text-xs sm:text-sm font-semibold text-stone-600 dark:text-slate-400">متطوع ومتطوعة</div>
-            </div>
-            
-            <div class="space-y-1 border-r border-stone-200 dark:border-slate-800 pr-4">
-                <div class="text-3xl sm:text-4xl font-extrabold text-amber-600 dark:text-amber-400">15+</div>
-                <div class="text-xs sm:text-sm font-semibold text-stone-600 dark:text-slate-400">عاماً من العطاء المستمر</div>
-            </div>
-
+      <div
+        class="bg-white dark:bg-[#111625] rounded-2xl p-6 sm:p-8 shadow-lg shadow-stone-300/40 dark:shadow-black/60 border border-stone-200 dark:border-slate-800 grid grid-cols-2 md:grid-cols-4 gap-6 text-center transition-colors duration-300"
+      >
+        <div class="space-y-1">
+          <div
+            class="text-3xl sm:text-4xl font-extrabold text-brand-900 dark:text-amber-400"
+          >
+            1,250+
+          </div>
+          <div
+            class="text-xs sm:text-sm font-semibold text-stone-600 dark:text-slate-400"
+          >
+            أسرة مستفيدة
+          </div>
         </div>
+
+        <div
+          class="space-y-1 border-r border-stone-200 dark:border-slate-800 pr-4"
+        >
+          <div
+            class="text-3xl sm:text-4xl font-extrabold text-brand-900 dark:text-amber-400"
+          >
+            45+
+          </div>
+          <div
+            class="text-xs sm:text-sm font-semibold text-stone-600 dark:text-slate-400"
+          >
+            مشروع خيري وتنموي
+          </div>
+        </div>
+
+        <div
+          class="space-y-1 border-r border-stone-200 dark:border-slate-800 pr-4"
+        >
+          <div
+            class="text-3xl sm:text-4xl font-extrabold text-brand-900 dark:text-amber-400"
+          >
+            120+
+          </div>
+          <div
+            class="text-xs sm:text-sm font-semibold text-stone-600 dark:text-slate-400"
+          >
+            متطوع ومتطوعة
+          </div>
+        </div>
+
+        <div
+          class="space-y-1 border-r border-stone-200 dark:border-slate-800 pr-4"
+        >
+          <div
+            class="text-3xl sm:text-4xl font-extrabold text-amber-600 dark:text-amber-400"
+          >
+            15+
+          </div>
+          <div
+            class="text-xs sm:text-sm font-semibold text-stone-600 dark:text-slate-400"
+          >
+            عاماً من العطاء المستمر
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-20 bg-[#f8f6f0] dark:bg-[#0b0f19] transition-colors duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            
-            <div class="text-center max-w-2xl mx-auto mb-16">
-                <span class="text-brand-900 dark:text-amber-400 text-sm font-bold uppercase tracking-wider bg-stone-200/70 dark:bg-slate-800/80 border border-stone-300/70 dark:border-slate-700 px-4 py-1 rounded-full">نبذة تعريفية</span>
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-stone-900 dark:text-white mt-3 mb-4">من نحن</h2>
-                <div class="w-16 h-1 bg-amber-500 mx-auto rounded-full"></div>
-            </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                
-                <div class="lg:col-span-5">
-                    <div class="bg-white dark:bg-[#111625] p-8 rounded-3xl shadow-sm border border-stone-200 dark:border-slate-800 text-center relative overflow-hidden transition-colors duration-300">
-                        <div class="w-32 h-32 mx-auto mb-6 bg-stone-100 dark:bg-slate-800 rounded-2xl flex items-center justify-center p-4 border border-stone-200 dark:border-slate-700">
-                            <img src="https://edabi-ber.sa/wp-content/uploads/2019/06/cropped-%D8%B4%D8%B9%D8%A7%D8%B1.png" 
-                                 alt="شعار جمعية البر بالعيدابي" 
-                                 class="max-w-full max-h-full object-contain">
-                        </div>
-                        <h3 class="text-xl font-bold text-stone-900 dark:text-white">جمعية البر بمحافظة العيدابي</h3>
-                        <p class="text-xs font-semibold text-stone-500 dark:text-slate-400 mt-1">تأسست عام 1421هـ (الموافق 2000م)</p>
-                    </div>
-                </div>
-
-                <div class="lg:col-span-7 space-y-6">
-                    <div class="bg-white dark:bg-[#111625] p-6 sm:p-7 rounded-2xl shadow-sm border border-stone-200 dark:border-slate-800 transition-colors duration-300">
-                        <h3 class="text-lg font-bold text-brand-900 dark:text-amber-400 flex items-center gap-2 mb-2">
-                            <i class="fas fa-landmark text-amber-600 dark:text-amber-400"></i>
-                            <span>عن الجمعية:</span>
-                        </h3>
-                        <p class="text-stone-600 dark:text-slate-300 leading-relaxed text-sm sm:text-base">
-                            تأسست جمعية البر الخيرية بمحافظة العيدابي عام 1421هـ، وهي جمعية غير ربحية مسجلة برقم (228) بوزارة الموارد البشرية والتنمية الاجتماعية، وتهدف إلى سد حاجات الأسر المتعففة وتطوير مهارات أفرادها.
-                        </p>
-                    </div>
-
-                    <div class="bg-white dark:bg-[#111625] p-6 sm:p-7 rounded-2xl shadow-sm border border-stone-200 dark:border-slate-800 transition-colors duration-300">
-                        <h3 class="text-lg font-bold text-brand-900 dark:text-amber-400 flex items-center gap-2 mb-2">
-                            <i class="fas fa-bullseye text-amber-600 dark:text-amber-400"></i>
-                            <span>رسالتنا:</span>
-                        </h3>
-                        <p class="text-stone-600 dark:text-slate-300 leading-relaxed text-sm sm:text-base">
-                            صناعة التنمية في مجال العمل الاجتماعي والخيري بمحافظة العيدابي عبر ابتكار البرامج الفاعلة وإدارة الشراكات الحكومية والخاصة للوصول إلى حلول ريادية تسهم في نهضة المجتمع المحلي.
-                        </p>
-                    </div>
-
-                    <!-- Trust Points -->
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
-                        <div class="flex items-center gap-2 bg-emerald-50/90 dark:bg-emerald-950/40 text-emerald-800 dark:text-emerald-300 px-4 py-3 rounded-xl text-sm font-semibold border border-emerald-200/60 dark:border-emerald-800/50">
-                            <i class="fas fa-check-circle text-emerald-600 dark:text-emerald-400"></i>
-                            <span>شفافية وحوكمة</span>
-                        </div>
-                        <div class="flex items-center gap-2 bg-emerald-50/90 dark:bg-emerald-950/40 text-emerald-800 dark:text-emerald-300 px-4 py-3 rounded-xl text-sm font-semibold border border-emerald-200/60 dark:border-emerald-800/50">
-                            <i class="fas fa-file-contract text-emerald-600 dark:text-emerald-400"></i>
-                            <span>مرخصة رسمياً</span>
-                        </div>
-                        <div class="flex items-center gap-2 bg-emerald-50/90 dark:bg-emerald-950/40 text-emerald-800 dark:text-emerald-300 px-4 py-3 rounded-xl text-sm font-semibold border border-emerald-200/60 dark:border-emerald-800/50">
-                            <i class="fas fa-users-cog text-emerald-600 dark:text-emerald-400"></i>
-                            <span>كوادر مؤهلة</span>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
+    <section
+      id="about"
+      class="py-20 bg-[#f8f6f0] dark:bg-[#0b0f19] transition-colors duration-300"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+          <span
+            class="text-brand-900 dark:text-amber-400 text-sm font-bold uppercase tracking-wider bg-stone-200/70 dark:bg-slate-800/80 border border-stone-300/70 dark:border-slate-700 px-4 py-1 rounded-full"
+            >نبذة تعريفية</span
+          >
+          <h2
+            class="text-3xl sm:text-4xl font-extrabold text-stone-900 dark:text-white mt-3 mb-4"
+          >
+            من نحن
+          </h2>
+          <div class="w-16 h-1 bg-amber-500 mx-auto rounded-full"></div>
         </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <div class="lg:col-span-5">
+            <div
+              class="bg-white dark:bg-[#111625] p-8 rounded-3xl shadow-sm border border-stone-200 dark:border-slate-800 text-center relative overflow-hidden transition-colors duration-300"
+            >
+              <div
+                class="w-32 h-32 mx-auto mb-6 bg-stone-100 dark:bg-slate-800 rounded-2xl flex items-center justify-center p-4 border border-stone-200 dark:border-slate-700"
+              >
+                <img
+                  src="assets/images/logo.png"
+                  alt="شعار جمعية البر بالعيدابي"
+                  class="max-w-full max-h-full object-contain"
+                />
+              </div>
+              <h3 class="text-xl font-bold text-stone-900 dark:text-white">
+                جمعية البر بمحافظة العيدابي
+              </h3>
+              <p
+                class="text-xs font-semibold text-stone-500 dark:text-slate-400 mt-1"
+              >
+                تأسست عام 1421هـ (الموافق 2000م)
+              </p>
+            </div>
+          </div>
+
+          <div class="lg:col-span-7 space-y-6">
+            <div
+              class="bg-white dark:bg-[#111625] p-6 sm:p-7 rounded-2xl shadow-sm border border-stone-200 dark:border-slate-800 transition-colors duration-300"
+            >
+              <h3
+                class="text-lg font-bold text-brand-900 dark:text-amber-400 flex items-center gap-2 mb-2"
+              >
+                <i
+                  class="fas fa-landmark text-amber-600 dark:text-amber-400"
+                ></i>
+                <span>عن الجمعية:</span>
+              </h3>
+              <p
+                class="text-stone-600 dark:text-slate-300 leading-relaxed text-sm sm:text-base"
+              >
+                تأسست جمعية البر الخيرية بمحافظة العيدابي عام 1421هـ، وهي جمعية
+                غير ربحية مسجلة برقم (228) بوزارة الموارد البشرية والتنمية
+                الاجتماعية، وتهدف إلى سد حاجات الأسر المتعففة وتطوير مهارات
+                أفرادها.
+              </p>
+            </div>
+
+            <div
+              class="bg-white dark:bg-[#111625] p-6 sm:p-7 rounded-2xl shadow-sm border border-stone-200 dark:border-slate-800 transition-colors duration-300"
+            >
+              <h3
+                class="text-lg font-bold text-brand-900 dark:text-amber-400 flex items-center gap-2 mb-2"
+              >
+                <i
+                  class="fas fa-bullseye text-amber-600 dark:text-amber-400"
+                ></i>
+                <span>رسالتنا:</span>
+              </h3>
+              <p
+                class="text-stone-600 dark:text-slate-300 leading-relaxed text-sm sm:text-base"
+              >
+                صناعة التنمية في مجال العمل الاجتماعي والخيري بمحافظة العيدابي
+                عبر ابتكار البرامج الفاعلة وإدارة الشراكات الحكومية والخاصة
+                للوصول إلى حلول ريادية تسهم في نهضة المجتمع المحلي.
+              </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
+              <div
+                class="flex items-center gap-2 bg-emerald-50/90 dark:bg-emerald-950/40 text-emerald-800 dark:text-emerald-300 px-4 py-3 rounded-xl text-sm font-semibold border border-emerald-200/60 dark:border-emerald-800/50"
+              >
+                <i
+                  class="fas fa-check-circle text-emerald-600 dark:text-emerald-400"
+                ></i>
+                <span>شفافية وحوكمة</span>
+              </div>
+              <div
+                class="flex items-center gap-2 bg-emerald-50/90 dark:bg-emerald-950/40 text-emerald-800 dark:text-emerald-300 px-4 py-3 rounded-xl text-sm font-semibold border border-emerald-200/60 dark:border-emerald-800/50"
+              >
+                <i
+                  class="fas fa-file-contract text-emerald-600 dark:text-emerald-400"
+                ></i>
+                <span>مرخصة رسمياً</span>
+              </div>
+              <div
+                class="flex items-center gap-2 bg-emerald-50/90 dark:bg-emerald-950/40 text-emerald-800 dark:text-emerald-300 px-4 py-3 rounded-xl text-sm font-semibold border border-emerald-200/60 dark:border-emerald-800/50"
+              >
+                <i
+                  class="fas fa-users-cog text-emerald-600 dark:text-emerald-400"
+                ></i>
+                <span>كوادر مؤهلة</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Causes Section -->
-    <section id="causes" class="py-20 bg-stone-100/60 dark:bg-[#0f1422] border-t border-stone-200 dark:border-slate-800 transition-colors duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            
-            <div class="text-center max-w-2xl mx-auto mb-16">
-                <span class="text-brand-900 dark:text-amber-400 text-sm font-bold uppercase tracking-wider bg-stone-200/70 dark:bg-slate-800/80 border border-stone-300/70 dark:border-slate-700 px-4 py-1 rounded-full">أبواب الخير</span>
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-stone-900 dark:text-white mt-3 mb-4">برامجنا ومشاريعنا الخيرية</h2>
-                <p class="text-stone-600 dark:text-slate-400 text-sm sm:text-base">اختر البرنامج المناسب وشارك في صناعة الأثر للمستفيدين</p>
-                <div class="w-16 h-1 bg-amber-500 mx-auto rounded-full mt-4"></div>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                
-                <!-- Cause Card 1 -->
-                <div class="group bg-white dark:bg-[#111625] rounded-2xl overflow-hidden border border-stone-200 dark:border-slate-800 shadow-sm hover:shadow-lg dark:hover:border-slate-700 hover:-translate-y-1 transition-all duration-300 flex flex-col">
-                    <div class="relative h-52 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1640978216997-8a74a4864928?q=80&w=1740&auto=format&fit=crop" 
-                             alt="برنامج كفالة الأيتام" 
-                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                        <span class="absolute top-3 right-3 bg-brand-950/90 dark:bg-black/80 text-amber-300 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold shadow-md border border-white/10">
-                            كفالة ورعاية
-                        </span>
-                    </div>
-                    <div class="p-6 flex flex-col flex-grow">
-                        <h3 class="text-xl font-bold text-stone-900 dark:text-white mb-2 group-hover:text-brand-800 dark:group-hover:text-amber-400 transition-colors">كفالة الأيتام</h3>
-                        <p class="text-stone-600 dark:text-slate-300 text-sm leading-relaxed mb-6 flex-grow">
-                            رعاية متكاملة للأيتام تشمل الاحتياجات المعيشية، التعليمية، والكسوة لتوفير حياة كريمة ومستقبل مشرق.
-                        </p>
-                        
-                        <div class="space-y-2 mb-6">
-                            <div class="flex justify-between text-xs font-semibold text-stone-600 dark:text-slate-400">
-                                <span>المستهدف: 75 يتيماً</span>
-                                <span class="text-brand-800 dark:text-amber-400 font-bold">تم كفالة 60%</span>
-                            </div>
-                            <div class="w-full bg-stone-100 dark:bg-slate-800 rounded-full h-2 overflow-hidden border border-stone-200 dark:border-slate-700">
-                                <div class="bg-gradient-to-r from-amber-500 to-brand-700 dark:to-amber-600 h-full rounded-full w-[60%]"></div>
-                            </div>
-                        </div>
-
-                        <button class="w-full bg-stone-900 hover:bg-brand-900 dark:bg-slate-800 dark:hover:bg-amber-600 dark:hover:text-slate-950 text-white font-bold py-3 rounded-xl transition-all flex items-center justify-center gap-2 shadow-sm">
-                            <span>تبرع للكفالة</span>
-                            <i class="fas fa-heart text-xs text-amber-400 dark:text-inherit"></i>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Cause Card 2 -->
-                <div class="group bg-white dark:bg-[#111625] rounded-2xl overflow-hidden border border-stone-200 dark:border-slate-800 shadow-sm hover:shadow-lg dark:hover:border-slate-700 hover:-translate-y-1 transition-all duration-300 flex flex-col">
-                    <div class="relative h-52 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1507048331197-7d4ac70811cf?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" 
-                             alt="برنامج السلال الغذائية" 
-                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                        <span class="absolute top-3 right-3 bg-emerald-950/90 dark:bg-black/80 text-emerald-300 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold shadow-md border border-white/10">
-                            إغاثة وإطعام
-                        </span>
-                    </div>
-                    <div class="p-6 flex flex-col flex-grow">
-                        <h3 class="text-xl font-bold text-stone-900 dark:text-white mb-2 group-hover:text-brand-800 dark:group-hover:text-amber-400 transition-colors">السلال الغذائية للأسر</h3>
-                        <p class="text-stone-600 dark:text-slate-300 text-sm leading-relaxed mb-6 flex-grow">
-                            تأمين الاحتياجات التموينية الأساسية للأسر المتعففة والأشد حاجة في قرى ومراكز محافظة العيدابي.
-                        </p>
-                        
-                        <div class="space-y-2 mb-6">
-                            <div class="flex justify-between text-xs font-semibold text-stone-600 dark:text-slate-400">
-                                <span>المستهدف: 350 أسرة</span>
-                                <span class="text-brand-800 dark:text-amber-400 font-bold">تم تأمين 80%</span>
-                            </div>
-                            <div class="w-full bg-stone-100 dark:bg-slate-800 rounded-full h-2 overflow-hidden border border-stone-200 dark:border-slate-700">
-                                <div class="bg-gradient-to-r from-amber-500 to-brand-700 dark:to-amber-600 h-full rounded-full w-[80%]"></div>
-                            </div>
-                        </div>
-
-                        <button class="w-full bg-stone-900 hover:bg-brand-900 dark:bg-slate-800 dark:hover:bg-amber-600 dark:hover:text-slate-950 text-white font-bold py-3 rounded-xl transition-all flex items-center justify-center gap-2 shadow-sm">
-                            <span>تبرع بسلة</span>
-                            <i class="fas fa-shopping-basket text-xs text-amber-400 dark:text-inherit"></i>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Cause Card 3 -->
-                <div class="group bg-white dark:bg-[#111625] rounded-2xl overflow-hidden border border-stone-200 dark:border-slate-800 shadow-sm hover:shadow-lg dark:hover:border-slate-700 hover:-translate-y-1 transition-all duration-300 flex flex-col">
-                    <div class="relative h-52 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" 
-                             alt="برنامج دعم التعليم والطلاب" 
-                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                        <span class="absolute top-3 right-3 bg-blue-950/90 dark:bg-black/80 text-blue-300 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold shadow-md border border-white/10">
-                            تنمية وتعليم
-                        </span>
-                    </div>
-                    <div class="p-6 flex flex-col flex-grow">
-                        <h3 class="text-xl font-bold text-stone-900 dark:text-white mb-2 group-hover:text-brand-800 dark:group-hover:text-amber-400 transition-colors">دعم الطلاب والتعليم</h3>
-                        <p class="text-stone-600 dark:text-slate-300 text-sm leading-relaxed mb-6 flex-grow">
-                            تأمين الحقيبة المدرسية والأجهزة اللوحية والكسوة لطلاب الأسر المحتاجة لمساعدتهم على مواصلة تعليمهم.
-                        </p>
-                        
-                        <div class="space-y-2 mb-6">
-                            <div class="flex justify-between text-xs font-semibold text-stone-600 dark:text-slate-400">
-                                <span>المستهدف: 200 طالب</span>
-                                <span class="text-brand-800 dark:text-amber-400 font-bold">تم دعم 45%</span>
-                            </div>
-                            <div class="w-full bg-stone-100 dark:bg-slate-800 rounded-full h-2 overflow-hidden border border-stone-200 dark:border-slate-700">
-                                <div class="bg-gradient-to-r from-amber-500 to-brand-700 dark:to-amber-600 h-full rounded-full w-[45%]"></div>
-                            </div>
-                        </div>
-
-                        <button class="w-full bg-stone-900 hover:bg-brand-900 dark:bg-slate-800 dark:hover:bg-amber-600 dark:hover:text-slate-950 text-white font-bold py-3 rounded-xl transition-all flex items-center justify-center gap-2 shadow-sm">
-                            <span>تبرع للتعليم</span>
-                            <i class="fas fa-graduation-cap text-xs text-amber-400 dark:text-inherit"></i>
-                        </button>
-                    </div>
-                </div>
-
-            </div>
+    <section
+      id="causes"
+      class="py-20 bg-stone-100/60 dark:bg-[#0f1422] border-t border-stone-200 dark:border-slate-800 transition-colors duration-300"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+          <span
+            class="text-brand-900 dark:text-amber-400 text-sm font-bold uppercase tracking-wider bg-stone-200/70 dark:bg-slate-800/80 border border-stone-300/70 dark:border-slate-700 px-4 py-1 rounded-full"
+            >أبواب الخير</span
+          >
+          <h2
+            class="text-3xl sm:text-4xl font-extrabold text-stone-900 dark:text-white mt-3 mb-4"
+          >
+            برامجنا ومشاريعنا الخيرية
+          </h2>
+          <p class="text-stone-600 dark:text-slate-400 text-sm sm:text-base">
+            اختر البرنامج المناسب وشارك في صناعة الأثر للمستفيدين
+          </p>
+          <div class="w-16 h-1 bg-amber-500 mx-auto rounded-full mt-4"></div>
         </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Cause Card 1 -->
+          <div
+            class="group bg-white dark:bg-[#111625] rounded-2xl overflow-hidden border border-stone-200 dark:border-slate-800 shadow-sm hover:shadow-lg dark:hover:border-slate-700 hover:-translate-y-1 transition-all duration-300 flex flex-col"
+          >
+            <div class="relative h-52 overflow-hidden">
+              <img
+                src="assets/images/orphans.jpg"
+                alt="برنامج كفالة الأيتام"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <span
+                class="absolute top-3 right-3 bg-brand-950/90 dark:bg-black/80 text-amber-300 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold shadow-md border border-white/10"
+              >
+                كفالة ورعاية
+              </span>
+            </div>
+            <div class="p-6 flex flex-col flex-grow">
+              <h3
+                class="text-xl font-bold text-stone-900 dark:text-white mb-2 group-hover:text-brand-800 dark:group-hover:text-amber-400 transition-colors"
+              >
+                كفالة الأيتام
+              </h3>
+              <p
+                class="text-stone-600 dark:text-slate-300 text-sm leading-relaxed mb-6 flex-grow"
+              >
+                رعاية متكاملة للأيتام تشمل الاحتياجات المعيشية، التعليمية،
+                والكسوة لتوفير حياة كريمة ومستقبل مشرق.
+              </p>
+
+              <div class="space-y-2 mb-6">
+                <div
+                  class="flex justify-between text-xs font-semibold text-stone-600 dark:text-slate-400"
+                >
+                  <span>المستهدف: 75 يتيماً</span>
+                  <span class="text-brand-800 dark:text-amber-400 font-bold"
+                    >تم كفالة 60%</span
+                  >
+                </div>
+                <div
+                  class="w-full bg-stone-100 dark:bg-slate-800 rounded-full h-2 overflow-hidden border border-stone-200 dark:border-slate-700"
+                >
+                  <div
+                    class="bg-gradient-to-r from-amber-500 to-brand-700 dark:to-amber-600 h-full rounded-full w-[60%]"
+                  ></div>
+                </div>
+              </div>
+
+              <button
+                class="w-full bg-stone-900 hover:bg-brand-900 dark:bg-slate-800 dark:hover:bg-amber-600 dark:hover:text-slate-950 text-white font-bold py-3 rounded-xl transition-all flex items-center justify-center gap-2 shadow-sm"
+              >
+                <span>تبرع للكفالة</span>
+                <i
+                  class="fas fa-heart text-xs text-amber-400 dark:text-inherit"
+                ></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Cause Card 2 -->
+          <div
+            class="group bg-white dark:bg-[#111625] rounded-2xl overflow-hidden border border-stone-200 dark:border-slate-800 shadow-sm hover:shadow-lg dark:hover:border-slate-700 hover:-translate-y-1 transition-all duration-300 flex flex-col"
+          >
+            <div class="relative h-52 overflow-hidden">
+              <img
+                src="assets/images/food-basket.jpg"
+                alt="برنامج السلال الغذائية"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <span
+                class="absolute top-3 right-3 bg-emerald-950/90 dark:bg-black/80 text-emerald-300 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold shadow-md border border-white/10"
+              >
+                إغاثة وإطعام
+              </span>
+            </div>
+            <div class="p-6 flex flex-col flex-grow">
+              <h3
+                class="text-xl font-bold text-stone-900 dark:text-white mb-2 group-hover:text-brand-800 dark:group-hover:text-amber-400 transition-colors"
+              >
+                السلال الغذائية للأسر
+              </h3>
+              <p
+                class="text-stone-600 dark:text-slate-300 text-sm leading-relaxed mb-6 flex-grow"
+              >
+                تأمين الاحتياجات التموينية الأساسية للأسر المتعففة والأشد حاجة
+                في قرى ومراكز محافظة العيدابي.
+              </p>
+
+              <div class="space-y-2 mb-6">
+                <div
+                  class="flex justify-between text-xs font-semibold text-stone-600 dark:text-slate-400"
+                >
+                  <span>المستهدف: 350 أسرة</span>
+                  <span class="text-brand-800 dark:text-amber-400 font-bold"
+                    >تم تأمين 80%</span
+                  >
+                </div>
+                <div
+                  class="w-full bg-stone-100 dark:bg-slate-800 rounded-full h-2 overflow-hidden border border-stone-200 dark:border-slate-700"
+                >
+                  <div
+                    class="bg-gradient-to-r from-amber-500 to-brand-700 dark:to-amber-600 h-full rounded-full w-[80%]"
+                  ></div>
+                </div>
+              </div>
+
+              <button
+                class="w-full bg-stone-900 hover:bg-brand-900 dark:bg-slate-800 dark:hover:bg-amber-600 dark:hover:text-slate-950 text-white font-bold py-3 rounded-xl transition-all flex items-center justify-center gap-2 shadow-sm"
+              >
+                <span>تبرع بسلة</span>
+                <i
+                  class="fas fa-shopping-basket text-xs text-amber-400 dark:text-inherit"
+                ></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Cause Card 3 -->
+          <div
+            class="group bg-white dark:bg-[#111625] rounded-2xl overflow-hidden border border-stone-200 dark:border-slate-800 shadow-sm hover:shadow-lg dark:hover:border-slate-700 hover:-translate-y-1 transition-all duration-300 flex flex-col"
+          >
+            <div class="relative h-52 overflow-hidden">
+              <img
+                src="assets/images/education.jpg"
+                alt="برنامج دعم التعليم والطلاب"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <span
+                class="absolute top-3 right-3 bg-blue-950/90 dark:bg-black/80 text-blue-300 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold shadow-md border border-white/10"
+              >
+                تنمية وتعليم
+              </span>
+            </div>
+            <div class="p-6 flex flex-col flex-grow">
+              <h3
+                class="text-xl font-bold text-stone-900 dark:text-white mb-2 group-hover:text-brand-800 dark:group-hover:text-amber-400 transition-colors"
+              >
+                دعم الطلاب والتعليم
+              </h3>
+              <p
+                class="text-stone-600 dark:text-slate-300 text-sm leading-relaxed mb-6 flex-grow"
+              >
+                تأمين الحقيبة المدرسية والأجهزة اللوحية والكسوة لطلاب الأسر
+                المحتاجة لمساعدتهم على مواصلة تعليمهم.
+              </p>
+
+              <div class="space-y-2 mb-6">
+                <div
+                  class="flex justify-between text-xs font-semibold text-stone-600 dark:text-slate-400"
+                >
+                  <span>المستهدف: 200 طالب</span>
+                  <span class="text-brand-800 dark:text-amber-400 font-bold"
+                    >تم دعم 45%</span
+                  >
+                </div>
+                <div
+                  class="w-full bg-stone-100 dark:bg-slate-800 rounded-full h-2 overflow-hidden border border-stone-200 dark:border-slate-700"
+                >
+                  <div
+                    class="bg-gradient-to-r from-amber-500 to-brand-700 dark:to-amber-600 h-full rounded-full w-[45%]"
+                  ></div>
+                </div>
+              </div>
+
+              <button
+                class="w-full bg-stone-900 hover:bg-brand-900 dark:bg-slate-800 dark:hover:bg-amber-600 dark:hover:text-slate-950 text-white font-bold py-3 rounded-xl transition-all flex items-center justify-center gap-2 shadow-sm"
+              >
+                <span>تبرع للتعليم</span>
+                <i
+                  class="fas fa-graduation-cap text-xs text-amber-400 dark:text-inherit"
+                ></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Contact & Footer Section -->
-    <footer id="contact" class="bg-brand-950 dark:bg-[#070a12] text-white pt-16 pb-12 border-t border-brand-900 dark:border-slate-800 transition-colors duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            
-            <div class="text-center max-w-2xl mx-auto mb-12">
-                <h2 class="text-2xl sm:text-3xl font-extrabold text-white mb-3">تواصل معنا</h2>
-                <p class="text-stone-300 dark:text-slate-400 text-sm sm:text-base">نسعد باستقبال استفساراتكم واقتراحاتكم ومساهماتكم عبر القنوات الرسمية</p>
-                <div class="w-16 h-1 bg-amber-500 mx-auto rounded-full mt-4"></div>
-            </div>
-
-            <!-- Direct Contact Channels -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto mb-12">
-                
-                <a href="tel:+966115103292" class="group flex items-center gap-4 bg-brand-900/60 dark:bg-slate-900/80 hover:bg-brand-900 dark:hover:bg-slate-800 border border-brand-800 dark:border-slate-800 p-5 rounded-2xl transition-all">
-                    <div class="w-12 h-12 rounded-xl bg-brand-950 dark:bg-slate-950 text-amber-400 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
-                        <i class="fas fa-phone-alt"></i>
-                    </div>
-                    <div>
-                        <span class="text-xs font-semibold text-stone-300 dark:text-slate-400 block">الهاتف المباشر</span>
-                        <span class="text-base font-bold text-white tracking-wide" dir="ltr">+966 11 510 3292</span>
-                    </div>
-                </a>
-
-                <a href="mailto:edabi-ber@outlook.sa" class="group flex items-center gap-4 bg-brand-900/60 dark:bg-slate-900/80 hover:bg-brand-900 dark:hover:bg-slate-800 border border-brand-800 dark:border-slate-800 p-5 rounded-2xl transition-all">
-                    <div class="w-12 h-12 rounded-xl bg-brand-950 dark:bg-slate-950 text-amber-400 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
-                        <i class="fas fa-envelope"></i>
-                    </div>
-                    <div>
-                        <span class="text-xs font-semibold text-stone-300 dark:text-slate-400 block">البريد الإلكتروني</span>
-                        <span class="text-base font-bold text-white">edabi-ber@outlook.sa</span>
-                    </div>
-                </a>
-
-            </div>
-
-            <!-- Social Media Icons -->
-            <div class="flex justify-center items-center gap-4 pt-6 border-t border-brand-900 dark:border-slate-850">
-                <a href="https://x.com/beredabi?s=11" target="_blank" rel="noopener noreferrer" 
-                   class="w-11 h-11 rounded-full bg-brand-900 dark:bg-slate-900 hover:bg-white hover:text-stone-950 flex items-center justify-center text-stone-300 dark:text-slate-300 text-lg transition-all duration-200 hover:-translate-y-1 shadow-sm" 
-                   aria-label="حساب الجمعية على منصة إكس">
-                    <i class="fa-brands fa-x-twitter"></i>
-                </a>
-                <a href="https://www.facebook.com/share/1F1X7DYbzn/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" 
-                   class="w-11 h-11 rounded-full bg-brand-900 dark:bg-slate-900 hover:bg-blue-600 hover:text-white flex items-center justify-center text-stone-300 dark:text-slate-300 text-lg transition-all duration-200 hover:-translate-y-1 shadow-sm" 
-                   aria-label="صفحة الجمعية على فيسبوك">
-                    <i class="fab fa-facebook-f"></i>
-                </a>
-                <a href="https://snapchat.com/t/BsDB3GdZ" target="_blank" rel="noopener noreferrer" 
-                   class="w-11 h-11 rounded-full bg-brand-900 dark:bg-slate-900 hover:bg-yellow-400 hover:text-stone-950 flex items-center justify-center text-stone-300 dark:text-slate-300 text-lg transition-all duration-200 hover:-translate-y-1 shadow-sm" 
-                   aria-label="حساب الجمعية على سناب شات">
-                    <i class="fab fa-snapchat-ghost"></i>
-                </a>
-            </div>
-
-            <!-- Copyright & Credits -->
-            <div class="text-center text-stone-400 dark:text-slate-400 text-xs sm:text-sm mt-8 space-y-1 border-t border-brand-900/60 dark:border-slate-800/80 pt-6">
-                <p>© جميع الحقوق محفوظة لجمعية البر بمحافظة العيدابي</p>
-                <p class="text-stone-500 dark:text-slate-400">تم التطوير والإشراف ضمن مشروع التدريب التعاوني</p>
-            </div>
-
+    <footer
+      id="contact"
+      class="bg-brand-950 dark:bg-[#070a12] text-white pt-16 pb-12 border-t border-brand-900 dark:border-slate-800 transition-colors duration-300"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-12">
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-white mb-3">
+            تواصل معنا
+          </h2>
+          <p class="text-stone-300 dark:text-slate-400 text-sm sm:text-base">
+            نسعد باستقبال استفساراتكم واقتراحاتكم ومساهماتكم عبر القنوات الرسمية
+          </p>
+          <div class="w-16 h-1 bg-amber-500 mx-auto rounded-full mt-4"></div>
         </div>
+
+        <!-- Direct Contact Channels -->
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto mb-12"
+        >
+          <a
+            href="tel:+966115103292"
+            class="group flex items-center gap-4 bg-brand-900/60 dark:bg-slate-900/80 hover:bg-brand-900 dark:hover:bg-slate-800 border border-brand-800 dark:border-slate-800 p-5 rounded-2xl transition-all"
+          >
+            <div
+              class="w-12 h-12 rounded-xl bg-brand-950 dark:bg-slate-950 text-amber-400 flex items-center justify-center text-xl group-hover:scale-110 transition-transform"
+            >
+              <i class="fas fa-phone-alt"></i>
+            </div>
+            <div>
+              <span
+                class="text-xs font-semibold text-stone-300 dark:text-slate-400 block"
+                >الهاتف المباشر</span
+              >
+              <span
+                class="text-base font-bold text-white tracking-wide"
+                dir="ltr"
+                >+966 11 510 3292</span
+              >
+            </div>
+          </a>
+
+          <a
+            href="mailto:edabi-ber@outlook.sa"
+            class="group flex items-center gap-4 bg-brand-900/60 dark:bg-slate-900/80 hover:bg-brand-900 dark:hover:bg-slate-800 border border-brand-800 dark:border-slate-800 p-5 rounded-2xl transition-all"
+          >
+            <div
+              class="w-12 h-12 rounded-xl bg-brand-950 dark:bg-slate-950 text-amber-400 flex items-center justify-center text-xl group-hover:scale-110 transition-transform"
+            >
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div>
+              <span
+                class="text-xs font-semibold text-stone-300 dark:text-slate-400 block"
+                >البريد الإلكتروني</span
+              >
+              <span class="text-base font-bold text-white"
+                >edabi-ber@outlook.sa</span
+              >
+            </div>
+          </a>
+        </div>
+
+        <!-- Social Media Icons -->
+        <div
+          class="flex justify-center items-center gap-4 pt-6 border-t border-brand-900 dark:border-slate-850"
+        >
+          <a
+            href="https://x.com/beredabi?s=11"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="w-11 h-11 rounded-full bg-brand-900 dark:bg-slate-900 hover:bg-white hover:text-stone-950 flex items-center justify-center text-stone-300 dark:text-slate-300 text-lg transition-all duration-200 hover:-translate-y-1 shadow-sm"
+            aria-label="حساب الجمعية على منصة إكس"
+          >
+            <i class="fa-brands fa-x-twitter"></i>
+          </a>
+          <a
+            href="https://www.facebook.com/share/1F1X7DYbzn/?mibextid=wwXIfr"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="w-11 h-11 rounded-full bg-brand-900 dark:bg-slate-900 hover:bg-blue-600 hover:text-white flex items-center justify-center text-stone-300 dark:text-slate-300 text-lg transition-all duration-200 hover:-translate-y-1 shadow-sm"
+            aria-label="صفحة الجمعية على فيسبوك"
+          >
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a
+            href="https://snapchat.com/t/BsDB3GdZ"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="w-11 h-11 rounded-full bg-brand-900 dark:bg-slate-900 hover:bg-yellow-400 hover:text-stone-950 flex items-center justify-center text-stone-300 dark:text-slate-300 text-lg transition-all duration-200 hover:-translate-y-1 shadow-sm"
+            aria-label="حساب الجمعية على سناب شات"
+          >
+            <i class="fab fa-snapchat-ghost"></i>
+          </a>
+        </div>
+
+        <!-- Copyright & Credits -->
+        <div
+          class="text-center text-stone-400 dark:text-slate-400 text-xs sm:text-sm mt-8 space-y-1 border-t border-brand-900/60 dark:border-slate-800/80 pt-6"
+        >
+          <p>© جميع الحقوق محفوظة لجمعية البر بمحافظة العيدابي</p>
+          <p class="text-stone-500 dark:text-slate-400">
+            تم التطوير والإشراف ضمن مشروع التدريب التعاوني
+          </p>
+        </div>
+      </div>
     </footer>
 
-    <!-- Interactive Scripts -->
-    <script>
-        // --- Mobile Menu Toggle ---
-        const menuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const iconBars = document.getElementById('menu-icon-bars');
-        const iconClose = document.getElementById('menu-icon-close');
-        const mobileNavItems = document.querySelectorAll('.mobile-nav-item');
-
-        function toggleMenu() {
-            const isHidden = mobileMenu.classList.contains('hidden');
-            if (isHidden) {
-                mobileMenu.classList.remove('hidden');
-                menuButton.setAttribute('aria-expanded', 'true');
-                iconBars.classList.add('hidden');
-                iconClose.classList.remove('hidden');
-            } else {
-                mobileMenu.classList.add('hidden');
-                menuButton.setAttribute('aria-expanded', 'false');
-                iconClose.classList.add('hidden');
-                iconBars.classList.remove('hidden');
-            }
-        }
-
-        menuButton.addEventListener('click', toggleMenu);
-
-        mobileNavItems.forEach(item => {
-            item.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-                menuButton.setAttribute('aria-expanded', 'false');
-                iconClose.classList.add('hidden');
-                iconBars.classList.remove('hidden');
-            });
-        });
-
-        // --- Dark/Light Mode Switcher Logic ---
-        const themeToggleBtn = document.getElementById('theme-toggle');
-        const moonIcon = document.getElementById('theme-moon');
-        const sunIcon = document.getElementById('theme-sun');
-
-        function updateThemeIcons() {
-            if (document.documentElement.classList.contains('dark')) {
-                moonIcon.classList.add('hidden');
-                sunIcon.classList.remove('hidden');
-            } else {
-                sunIcon.classList.add('hidden');
-                moonIcon.classList.remove('hidden');
-            }
-        }
-
-        // Initialize icons on page load
-        updateThemeIcons();
-
-        themeToggleBtn.addEventListener('click', () => {
-            if (document.documentElement.classList.contains('dark')) {
-                document.documentElement.classList.remove('dark');
-                localStorage.setItem('theme', 'light');
-            } else {
-                document.documentElement.classList.add('dark');
-                localStorage.setItem('theme', 'dark');
-            }
-            updateThemeIcons();
-        });
-    </script>
-</body>
+    <!-- External JavaScript -->
+    <script src="assets/main.js"></script>
+  </body>
 </html>
