@@ -2,7 +2,7 @@ body {
     font-family: 'Tajawal', sans-serif;
 }
 
-/* خط سفلي ناعم للروابط */
+/* خط سفلي ناعم للروابط التفاعلية */
 .nav-link {
     position: relative;
     transition: color 0.2s ease;
@@ -26,4 +26,12 @@ body {
 
 .dark .nav-link::after {
     background-color: #f59e0b;
+}
+/* إخفاء شريط التمرير لكاروسيل البرامج مع الحفاظ على التمرير والسحب */
+.hide-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+.hide-scrollbar::-webkit-scrollbar {
+    display: none; /* Chrome, Safari and Opera */
 }
